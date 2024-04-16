@@ -46,6 +46,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 
 @Configuration
@@ -77,6 +79,16 @@ public class SecurityConfig {
                 // Accept access tokens for User Info and/or Client Registration
                 .oauth2ResourceServer((resourceServer) -> resourceServer
                         .jwt(Customizer.withDefaults()));
+        // Accept access tokens for User Info and/or Client Registration
+//            .oauth2ResourceServer((resourceServer) -> resourceServer
+//                .jwt(Customizer.withDefaults()))
+//                // Configure HTTP security for specific endpoints
+//                .authorizeRequests((requests) -> requests
+//                        // Permit access to /login endpoint
+//                        .antMatchers("/login").permitAll()
+//                        // Permit access to other API endpoints without authentication
+//                        .antMatchers("/api/products", "/api/products/{id}", "/api/products/search").permitAll()
+//                );
 
         return http.build();
     }

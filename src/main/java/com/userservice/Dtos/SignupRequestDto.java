@@ -1,10 +1,12 @@
 package com.userservice.Dtos;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
+@Data
 public class SignupRequestDto {
     private String name;
     private String email;
